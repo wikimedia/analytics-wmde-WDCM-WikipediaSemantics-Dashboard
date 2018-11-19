@@ -86,7 +86,7 @@ shinyUI(
                                          tabName = 'wikiTopics',
                                          icon = icon('bar-chart'))
                     ),
-                    menuItem(text = "Documentation",
+                    menuItem(text = "Info",
                              tabName = "documentation",
                              icon = icon("barcode"))
                   )
@@ -135,8 +135,10 @@ shinyUI(
                                      hr()
                               ),
                               column(width = 3,
-                                     HTML('<p style="font-size:80%;"align="right">Documentation<br><a href = "https://analytics.wikimedia.org/datasets/wdcm/WDCM_Sitelinks/" 
-                                          target = "_blank">Public datasets</a><br>GitHub</p>'),
+                                     HTML('<p style="font-size:80%;"align="right">
+                                          <a href = "https://wikitech.wikimedia.org/wiki/Wikidata_Concepts_Monitor#WDCM_Wikipedia_Semantics_Dashboard" target="_blank">Documentation</a><br><a href = "https://analytics.wikimedia.org/datasets/wdcm/WDCM_Sitelinks/" 
+                                          target = "_blank">Public datasets</a><br><a href = "https://github.com/wikimedia/analytics-wmde-WDCM-WikipediaSemantics-Dashboard" 
+                                          target = "_blank">GitHub</a></p>'),
                                      htmlOutput('updateString')
                               )
                             ),
@@ -516,11 +518,7 @@ shinyUI(
                             fluidRow(
                               column(width = 6,
                                      HTML('<p style="font-size:80%;"><b>Category Distribution in Wiki. </b>This chart presents the 
-                                          distribution of item usage across several Wikidata classes in the selected project. Please 
-                                          keep into you consideration the fact that only the 10,000 most frequently used items from each 
-                                          class were used. These 10,000 items were also used to determine 
-                                          the appropriate semantic topics model for each item class and they more or less convey all 
-                                          significant semantic information about the usage of respective item classes in Wikipedia.</p>'),
+                                          distribution of item usage across several Wikidata classes in the selected project.<br><br><br></p>'),
                                      hr(),
                                      withSpinner(plotOutput('wiki_CategoryDistribution', width = "100%", height = "600px"))
                               ),
@@ -654,8 +652,18 @@ shinyUI(
                     ),
                     tabItem(tabName = "documentation",
                             fluidRow(
-                              column(width = 12,
-                                     HTML('<p style="font-size:80%;"><b>Documentation </b></p>')
+                              column(width = 4,
+                                     HTML('<p style="font-size:80%;"><b>Info.</b> The WDCM Wikipedia Semantics 
+                                          (aka WDCM (S)itelinks) dashboard analyzes only the sitelinks usage aspect from 
+                                          the <a href = "https://www.mediawiki.org/wiki/Wikibase/Schema/wbc_entity_usage" target="_blank">wbc_entity_usage table</a> 
+                                          (from the <a href = "https://www.mediawiki.org/wiki/Wikibase/Schema" target="_blank">Wikibase schema</a>), and takes 
+                                          into account only mature Wikipedia projects (in terms of Wikidata usage) in order to obtain 
+                                          and present a broad and as clear as possible overview of the structure of Wikidata usage 
+                                          across the Wikipedia.<br>
+                                          Project selection criteria and all other technical information are provided on 
+                                          <a href="https://wikitech.wikimedia.org/wiki/Wikidata_Concepts_Monitor#WDCM_Wikipedia_Semantics_Dashboard" target="_blank">Wikitech</a>.<br>
+                                          In order to learn how to work with the Wikidata Concepts Monitor, please visit the projects\'s 
+                                          <a href = "https://www.wikidata.org/wiki/Wikidata:Wikidata_Concepts_Monitor" target = "_blank">Wikidata page</a>.</p>')
                               )
                             ),
                               fluidRow(
